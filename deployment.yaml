@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-gke
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example-gke
+  template:
+    metadata:
+      labels:
+        app: example-gke
+    spec:
+      containers:
+        - name: example-gke
+          image: gcr.io/<PROJECT_NAME>/example-gke:1.0
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /tests
+              port: 8080
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 10
+          #env:
+            #- name: SPRING_PROFILES_ACTIVE
+            #  value: prod
