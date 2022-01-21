@@ -1,13 +1,13 @@
-package com.fernando.examplegke;;
+package com.fernando.examplegke;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ExampleGkeApplicationTests {
+class GcsBasicApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
